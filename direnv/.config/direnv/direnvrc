@@ -1,0 +1,4 @@
+# Requires: nix profile add nixpkgs#nix-direnv
+if [ -e "$HOME/.nix-profile/share/nix-direnv/direnvrc" ]; then
+  source "$HOME/.nix-profile/share/nix-direnv/direnvrc"
+fi
