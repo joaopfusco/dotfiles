@@ -16,7 +16,7 @@ dotfiles/
 ```bash
 git clone <repo> ~/dotfiles
 cd ~/dotfiles
-stow zsh git zed claude direnv      # ou: stow */
+stow pacote1 pacote2     # ou: stow */
 ```
 
 Isto cria os symlinks no `$HOME`. Depois, abra um shell novo (`exec zsh`).
