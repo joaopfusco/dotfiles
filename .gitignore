@@ -1,1 +1,5 @@
 **/*.bak
+
+# Claude Code: machine-local overrides and runtime logs (never commit)
+**/settings.local.json
+**/.claude/logs/
