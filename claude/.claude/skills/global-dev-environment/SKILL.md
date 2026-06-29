@@ -1,5 +1,5 @@
 ---
-name: dev-environment
+name: global-dev-environment
 description: Scaffold a reproducible dev environment for a project (Nix flake, devenv, or devcontainer) and wire it with direnv. Use when setting up a new repo's toolchain or adding/adjusting a dev shell for any language.
 ---
 

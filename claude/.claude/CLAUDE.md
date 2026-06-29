@@ -9,6 +9,12 @@ When scaffolding a repo's own `.claude/` (e.g. via `/init`), keep it **lean**: o
 repo-specific facts and overrides (build/test commands, architecture, deviations).
 Don't copy these global rules into a repo — they already load everywhere.
 
+Global skills/commands here are prefixed `global-` (e.g. `/global-review-diff`).
+Skills resolve user-over-project (the opposite of most config), so a same-named
+global skill would silently shadow a repo's or a built-in one — the prefix avoids
+that. New global skills/commands should keep the prefix. (Agents don't need it:
+they resolve project-over-user.)
+
 ## Language
 
 - Reply to me in **Brazilian Portuguese**.
