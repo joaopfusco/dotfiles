@@ -1,6 +1,6 @@
 ---
 name: global-doctor
-description: Diagnose a broken local dev environment. Use when tools aren't found, the shell seems wrong, services won't connect, or "it works for someone else but not me". Checks direnv/Nix/devenv/devcontainer, toolchain resolution, and Docker Compose services, then reports what's wrong and how to fix it.
+description: Diagnose a broken local dev environment — tools not found, wrong shell, services won't connect, "works for someone else but not me". Checks direnv/Nix/devenv/devcontainer, toolchain resolution, and Docker Compose.
 ---
 
 # Dev environment doctor

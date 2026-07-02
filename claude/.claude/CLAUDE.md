@@ -1,65 +1,50 @@
 # Global instructions
 
-This is my **global** Claude Code config (managed in my dotfiles, symlinked to
-`~/.claude`). Keep everything here generic so it fits every repo — including ones
-that don't exist yet. Anything specific (versions, frameworks, layout, formatting,
-commands) belongs in that repo's own `.claude/` and `CLAUDE.md`, which override this.
+My **global** Claude Code config (dotfiles, symlinked to `~/.claude`). Keep it generic —
+it fits every repo. Repo-specific facts (versions, layout, build/test commands) belong in
+that repo's own `.claude/`/`CLAUDE.md`, which override this. When scaffolding a repo's
+`.claude/` (e.g. `/init`), keep it lean and don't copy these global rules in — they load
+everywhere.
 
-When scaffolding a repo's own `.claude/` (e.g. via `/init`), keep it **lean**: only
-repo-specific facts and overrides (build/test commands, architecture, deviations).
-Don't copy these global rules into a repo — they already load everywhere.
-
-Global skills/commands here are prefixed `global-` (e.g. `/global-review-diff`).
-Skills resolve user-over-project (the opposite of most config), so a same-named
-global skill would silently shadow a repo's or a built-in one — the prefix avoids
-that. New global skills/commands should keep the prefix. (Agents don't need it:
-they resolve project-over-user.)
+Global skills/commands are prefixed `global-` (skills resolve user-over-project, so the
+prefix avoids shadowing a repo's or built-in skill). Agents don't need it.
 
 ## Language
 
-- Reply to me in **Brazilian Portuguese**.
-- Keep code, identifiers, commit messages, branch names, and config/doc files in
-  **English** — unless a file is already written in Portuguese, then match it.
+- Reply in **Brazilian Portuguese**.
+- Code, identifiers, commit messages, branch names, config/doc files in **English** —
+  unless a file is already in Portuguese, then match it.
 
 ## About me
 
-Full-stack / systems engineer. I work across several languages and stacks, and the
-mix changes per repo and over time — don't assume, check the repo. Languages I use
-regularly include Go, Python, C#/.NET, TypeScript/React, and Rust, among others.
+Full-stack / systems engineer, polyglot — the stack changes per repo, so check, don't
+assume. Regular: Go, Python, C#/.NET, TypeScript/React, Rust, among others.
 
-- Dev environments are often reproducible shells (Nix flakes, sometimes `devenv` or
-  devcontainers) wired with direnv. When one exists, run tools inside it.
-- Local services and databases are usually run via Docker / Docker Compose.
-- My dotfiles — including this Claude Code config — are managed with GNU Stow.
+- Dev shells are often Nix flakes (sometimes `devenv`/devcontainers) + direnv; run tools inside them.
+- Local services/DBs via Docker Compose.
+- Dotfiles (incl. this config) managed with GNU Stow.
 
 ## How I like to work
 
-- Be concise and direct. Prefer the smallest change that solves the problem.
-- Match the conventions already in the file/repo before introducing new ones.
-- Don't add dependencies without asking; prefer the stdlib or libs already present.
+- Concise and direct. Smallest change that solves the problem.
+- Match existing conventions before introducing new ones.
+- Don't add dependencies without asking; prefer stdlib / libs already present.
 - Don't commit or push unless I ask. Never commit secrets.
-- The default branch (`main`/`master`) is off-limits by default: branch off it instead
-  of committing there. Commit or push **directly to the default branch only when I
-  clearly and explicitly authorize that specific action** — never assume it.
-- Commit messages: English, Conventional Commits style, **no `Co-Authored-By` trailer**.
-- When a reproducible dev shell exists (`flake.nix`, `devenv.nix`, `.devcontainer`,
-  `.envrc`), assume tooling runs inside it; don't install toolchains globally.
-- Don't reformat code wholesale and don't introduce a formatter/linter the repo
-  hasn't adopted. Formatting policy is decided per repo, not here.
+- Default branch (`main`/`master`) off-limits by default: branch off it. Commit/push
+  directly to it **only when I clearly, explicitly authorize that action** — never assume.
+- Commit messages: English, Conventional Commits, **no `Co-Authored-By` trailer**.
+- When a dev shell exists, run tooling inside it; don't install toolchains globally.
+- Don't reformat wholesale or introduce a formatter/linter the repo hasn't adopted.
 - Ask before large refactors, schema changes, or destructive operations.
 
 ## Conventions (`~/.claude/rules/`)
 
-Generic conventions live in `~/.claude/rules/` and load automatically. They are
-defaults — a repo's own `CLAUDE.md`/rules override them.
-
-- Always loaded (universal): `code-style.md`, `security.md`.
-- Path-scoped (load only when I touch matching files, via `paths:` frontmatter):
-  `testing.md`, `api-conventions.md`, `dev-environments.md`, and `languages/*.md`
-  (go, python, dotnet, typescript-react, rust).
+Load automatically as defaults (repo overrides win):
+- Always: `code-style.md`, `security.md`.
+- Path-scoped (`paths:` frontmatter): `testing.md`, `api-conventions.md`,
+  `dev-environments.md`, `languages/*.md`.
 
 ## Tooling
 
-- LSPs are available (pyright, typescript, gopls, csharp, rust-analyzer) — use them
-  when present.
-- Don't run formatters by default; follow whatever the repo has configured.
+- LSPs available (pyright, typescript, gopls, csharp, rust-analyzer) — use when present.
+- Don't run formatters by default; follow the repo's config.
