@@ -1,5 +1,5 @@
 ---
-description: Scaffold a lean repo-specific .claude/ (CLAUDE.md + settings + structure)
+description: Scaffold a lean repo-specific .claude/ (.claude/CLAUDE.md + settings + structure)
 argument-hint: "[empty | subpath to focus on]"
 ---
 
@@ -19,13 +19,18 @@ Scaffold a **lean, repo-specific** `.claude/` for this project. Focus: **$ARGUME
 - **Architecture:** top-level layout, entry points, key modules/packages, services
   (`compose.yml`), and the existing formatter/linter/test framework.
 
-## 2. Write a lean `CLAUDE.md`
+## 2. Write a lean `.claude/CLAUDE.md`
+
+Always put the project CLAUDE.md **inside `.claude/`** (`./.claude/CLAUDE.md`), never
+the repo root — Claude Code loads both, and this keeps it beside `.claude/rules/`.
 
 Repo-specific facts **only**: what the project is, exact build/test/lint/run commands
 (inside the dev shell when present), an architecture map (key dirs + entry points), and
 any **deviations** from my global defaults. Do **not** restate the rules in
-`~/.claude/rules/` — they already load everywhere. If a `CLAUDE.md` already exists,
-update it in place; don't clobber unrelated content.
+`~/.claude/rules/` — they already load everywhere. If `.claude/CLAUDE.md` already
+exists, update it in place; don't clobber unrelated content. If a root `./CLAUDE.md`
+exists instead, point it out and ask whether to move it into `.claude/` — don't
+silently relocate or duplicate it.
 
 ## 3. Scaffold `.claude/`
 
