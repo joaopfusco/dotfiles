@@ -38,6 +38,10 @@ regularly include Go, Python, C#/.NET, TypeScript/React, and Rust, among others.
 - Match the conventions already in the file/repo before introducing new ones.
 - Don't add dependencies without asking; prefer the stdlib or libs already present.
 - Don't commit or push unless I ask. Never commit secrets.
+- The default branch (`main`/`master`) is off-limits by default: branch off it instead
+  of committing there. Commit or push **directly to the default branch only when I
+  clearly and explicitly authorize that specific action** — never assume it.
+- Commit messages: English, Conventional Commits style, **no `Co-Authored-By` trailer**.
 - When a reproducible dev shell exists (`flake.nix`, `devenv.nix`, `.devcontainer`,
   `.envrc`), assume tooling runs inside it; don't install toolchains globally.
 - Don't reformat code wholesale and don't introduce a formatter/linter the repo

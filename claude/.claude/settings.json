@@ -5,14 +5,23 @@
       {
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
-          { "type": "command", "command": "$HOME/.claude/hooks/block-secrets.sh" }
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/block-secrets.sh"
+          }
         ]
       },
       {
         "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "$HOME/.claude/hooks/protect-main.sh" },
-          { "type": "command", "command": "$HOME/.claude/hooks/log-commands.sh" }
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/protect-main.sh"
+          },
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/log-commands.sh"
+          }
         ]
       }
     ]
@@ -41,6 +50,5 @@
     }
   },
   "autoMemoryEnabled": true,
-  "theme": "dark",
-  "model": "opus"
+  "theme": "dark"
 }

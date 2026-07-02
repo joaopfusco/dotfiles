@@ -17,10 +17,12 @@ Do **not** commit. Only suggest the message text. Then:
    (run again with `split`), but still produce the single message.
 3. For each suggested message: a concise subject line, and a body explaining **why**
    when the change isn't self-evident. Keep it in English (or match the repo if its
-   history is in another language). End each message with the trailer:
-   `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`
+   history is in another language). **No `Co-Authored-By` trailer.**
 
 After presenting, offer to make the commit(s) if I confirm. Only then commit — and if
-I'm on the default branch, create a branch first. Never push unless I ask.
+I'm on the default branch (`main`/`master`), create a feature branch first by default.
+Commit or push directly to the default branch only if I clearly authorize it; when I
+do, prefix the git command with `CLAUDE_ALLOW_MAIN=1` so the protect-main hook allows
+it. Never push unless I ask.
 
 Respond in Brazilian Portuguese.
