@@ -1,0 +1,12 @@
+[misc]
+only = [
+  "brew_formula",
+  "brew_cask",
+  "nix",
+  "dotnet",
+  "shell",
+  "claude_code",
+  "claude_code_plugins",
+  "codex",
+  "opencode",
+]
