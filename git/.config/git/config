@@ -1,0 +1,18 @@
+[user]
+	name = joaopfusco
+	email = joaopedrofusco@gmail.com
+
+[alias]
+	graph = "!git log --graph --oneline --decorate"
+	discard = "!f() { d=\"${1:-.}\"; git restore --staged \"$d\" && git restore \"$d\" && git clean -fd \"$d\"; }; f"
+
+[credential]
+	helper = store
+
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential

@@ -1,0 +1,9 @@
+[
+  {
+    "bindings": {
+      "ctrl-k f": "workspace::CloseProject",
+      "ctrl-shift-enter": "workspace::NewTerminal"
+    },
+    "context": "Workspace"
+  }
+]
