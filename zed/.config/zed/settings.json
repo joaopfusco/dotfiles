@@ -4,6 +4,7 @@
     "csharp": true,
     "docker": true,
     "dockerfile": true,
+    "fish": true,
     "git-firefly": true,
     "html": true,
     "make": true,
@@ -12,7 +13,7 @@
     "proto": true,
     "sql": true,
     "terraform": true,
-    "toml": true
+    "toml": true,
   },
   "autosave": {
     "after_delay": {
@@ -20,7 +21,6 @@
     }
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 15,
   "cli_default_open_behavior": "new_window",
   "file_finder": {
     "include_ignored": "all"
@@ -69,9 +69,8 @@
   },
   "soft_wrap": "editor_width",
   "theme": "One Dark",
-  "ui_font_family": "JetBrainsMono Nerd Font",
-  "ui_font_size": 16,
   "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
     "shell": {
       "program": "fish"
     }
