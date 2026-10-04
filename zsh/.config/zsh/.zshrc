@@ -1,29 +1,26 @@
-if [[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-fi
-
-if [[ -d /opt/homebrew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-typeset -U path
-path=("$HOME/.local/bin" "$HOME/.opencode/bin" "$HOME/.dotnet/tools" $path)
-
 HISTFILE="$ZDOTDIR/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
-
-ZSH_THEME=gentoo
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
-source "$ZSH/oh-my-zsh.sh"
-
 setopt HIST_FCNTL_LOCK HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
 
-autoload -U select-word-style
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+bindkey -e
+autoload -U select-word-style up-line-or-beginning-search down-line-or-beginning-search
 select-word-style bash
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 bindkey '^H' backward-kill-word
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%F{5}(%F{2}%b%F{5})%f '
+precmd() { vcs_info }
+setopt PROMPT_SUBST
+PROMPT='%B%F{green}%n@%m %F{blue}%~ ${vcs_info_msg_0_}%F{blue}$%b%f '
 
 alias l='eza -l'
 alias ls=l
@@ -47,5 +44,8 @@ flake-lock-revert() {
   && git -C "$HOME/nix-config" checkout HEAD~1 -- flake.lock \
   || git -C "$HOME/nix-config" checkout -- flake.lock
 }
+
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"

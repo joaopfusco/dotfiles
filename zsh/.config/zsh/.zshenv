@@ -3,6 +3,3 @@ export DOTNET_NOLOGO=1
 export NIX_PATH="nixpkgs=flake:nixpkgs"
 export NIXPKGS_ALLOW_UNFREE=1
 export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
-
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CACHE_DIR="$HOME/.cache/oh-my-zsh"

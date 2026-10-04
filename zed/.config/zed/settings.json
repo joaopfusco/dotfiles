@@ -4,7 +4,6 @@
     "csharp": true,
     "docker": true,
     "dockerfile": true,
-    "fish": true,
     "git-firefly": true,
     "html": true,
     "make": true,
@@ -70,12 +69,6 @@
   "soft_wrap": "editor_width",
   "theme": "One Dark",
   "terminal": {
-    "font_family": "JetBrainsMono Nerd Font",
-    "shell": {
-      "with_arguments": {
-        "program": "fish",
-        "args": ["--login"]
-      }
-    }
+    "font_family": "JetBrainsMono Nerd Font"
   }
 }
