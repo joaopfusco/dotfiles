@@ -31,9 +31,6 @@ alias la='eza -la'
 alias lt='eza --tree'
 alias cls='clear && printf '\''\033[3J'\'''
 alias ipe='curl ifconfig.me'
-alias dnix-upgrade='sudo determinate-nixd upgrade'
-alias dnix-version='determinate-nixd version'
-alias nix-upgrade='sudo -i nix upgrade-nix'
 
 flake-lock-age() {
   git -C "$HOME/nix-config" log -1 --format='%cd (%cr)' --date=short -- flake.lock

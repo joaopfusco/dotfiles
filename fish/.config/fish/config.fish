@@ -32,8 +32,5 @@ alias la 'eza -la'
 alias lt 'eza --tree'
 alias cls 'clear && printf '\''\033[3J'\'''
 alias ipe 'curl ifconfig.me'
-alias dnix-upgrade 'sudo determinate-nixd upgrade'
-alias dnix-version 'determinate-nixd version'
-alias nix-upgrade 'sudo -i nix upgrade-nix'
 
 command -q direnv; and direnv hook fish | source
