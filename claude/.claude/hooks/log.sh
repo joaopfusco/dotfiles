@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# PostToolUse hook (Bash): append every command Claude runs, plus a snippet of
-# its result, to a local audit log. Log lives outside the dotfiles repo
-# (~/.claude/logs), so it is never committed.
 set -euo pipefail
 
 input="$(cat)"

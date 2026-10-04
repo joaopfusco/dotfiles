@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# PreToolUse hook (Bash): ask for confirmation before running a git command
-# that mutates history/refs while the repo is checked out on its default branch.
 set -euo pipefail
 
 input="$(cat)"

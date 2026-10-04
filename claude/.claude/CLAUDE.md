@@ -14,10 +14,12 @@
 - Code, identifiers, documentation, comments, and commit messages: always in English
 - Chat explanations: always in Portuguese
 
-## Comments
-- No large comments or explanations in the middle of code — put that in documentation instead
-- Only comment to document the code itself (non-obvious why), never to narrate what it does
-- They must be simple and concise, and always short (less than 1 line)
+## Comments (strict)
+- Default: write NO comments. Code and names must explain themselves.
+- Allowed: one single-line comment explaining a non-obvious *why*. Never multi-line comment blocks, file headers, or docstrings narrating behavior.
+- Do not imitate verbose comments already in a file.
+- Bad: `# Loop over users and send each one an email, skipping inactive ones`
+- Good: `# API rejects batches > 100`
 
 ## Commits
 - Use Conventional Commits format (`feat:`, `fix:`, `refactor:`, etc.)

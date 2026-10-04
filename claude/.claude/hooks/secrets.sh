@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# PreToolUse hook (Edit|Write|MultiEdit): hard-block writes whose content
-# matches a known secret/API-key format. Unlike git.sh, this never downgrades
-# to "ask" — a leaked credential must never land on disk.
 set -euo pipefail
 
 input="$(cat)"
@@ -24,8 +21,6 @@ esac
 
 [ -z "$content" ] && exit 0
 
-# Vendor-specific formats: low false-positive rate, unlike generic
-# "password=..." heuristics, so no allowlist/override is provided.
 patterns=(
   'AKIA[0-9A-Z]{16}'                                  # AWS access key
   'ASIA[0-9A-Z]{16}'                                  # AWS temporary key
