@@ -3,6 +3,7 @@ only = [
   "brew_formula",
   "brew_cask",
   "nix",
+  "custom_commands",
   "dotnet",
   "shell",
   "claude_code",
