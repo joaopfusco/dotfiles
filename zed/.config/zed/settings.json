@@ -72,7 +72,10 @@
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "shell": {
-      "program": "fish"
+      "with_arguments": {
+        "program": "fish",
+        "args": ["--login"]
+      }
     }
   }
 }
