@@ -12,10 +12,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt HIST_FCNTL_LOCK HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
 
+# NIX_PROFILES lists the user profile last, so reverse it to give that one priority
+nix_profiles=(${(Oa)${(z)NIX_PROFILES}})
+
 # Tab completion with an arrow-navigable menu and case-insensitive matching
-for profile in ${(z)NIX_PROFILES}; do
-  fpath+=($profile/share/zsh/site-functions)
-done
+fpath+=(${^nix_profiles}/share/zsh/site-functions)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -33,6 +34,7 @@ bindkey '^H' backward-kill-word
 # Git status in the prompt via git's own git-prompt.sh
 source_first \
   "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh" \
+  ${^nix_profiles}/share/bash-completion/completions/git-prompt.sh \
   /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh \
   /usr/lib/git-core/git-sh-prompt
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -52,12 +54,14 @@ alias lt='eza --tree'
 alias cls='clear && printf '\''\033[3J'\'''
 alias ipe='curl ifconfig.me'
 
-# Plugins from Homebrew (macOS) or apt (Linux); syntax highlighting must load last
+# Plugins from Homebrew, Nix or apt; syntax highlighting must load last
 source_first \
   "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  ${^nix_profiles}/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
   /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_first \
   "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+  ${^nix_profiles}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
   /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load and unload .envrc files when changing directories
