@@ -9,6 +9,7 @@
 ## Environment
 - Dotfiles are managed with GNU Stow from `~/dotfiles` (one package per program)
 - Config files under `$HOME` are often symlinks into `~/dotfiles` — edit the file in that repo, not a copy
+- Anything platform-specific (OS, CPU architecture, packages, binaries, commands) must always work on both Linux and macOS — never assume a single platform
 
 ## Language
 - Code, identifiers, documentation, comments, and commit messages: always in English
