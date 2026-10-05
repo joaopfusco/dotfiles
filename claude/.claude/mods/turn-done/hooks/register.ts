@@ -20,7 +20,10 @@ const projectName = async ($: EngineInterface): Promise<string> => {
 
 type Urgency = 'normal' | 'critical'
 
+const KITTY_BUNDLE_ID = 'net.kovidgoyal.kitty'
+
 export const notifierCommands = (title: string, body: string, urgency: Urgency): string[][] => [
+  ['terminal-notifier', '-title', title, '-message', body, '-activate', KITTY_BUNDLE_ID, '-group', title],
   ['osascript', '-e', 'on run argv', '-e', 'display notification (item 2 of argv) with title (item 1 of argv)', '-e', 'end run', title, body],
   ['notify-send', '--app-name', 'Claude Code', '--urgency', urgency, title, body],
 ]
