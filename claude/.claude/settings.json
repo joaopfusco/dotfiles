@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
-    "CLAUDE_CODE_PLUGIN_DIRS": "~/dotfiles/claude/.claude/mods/usage-band:~/dotfiles/claude/.claude/mods/turn-done"
+    "CLAUDE_CODE_PLUGIN_DIRS": "~/dotfiles/claude/.claude/mods/usage-band"
   },
   "hooks": {
     "PreToolUse": [
