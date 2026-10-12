@@ -54,6 +54,16 @@ alias lt='eza --tree'
 alias cls='clear && printf '\''\033[3J'\'''
 alias ipe='curl ifconfig.me'
 
+# macOS GUI apps from nix live in $out/Applications, which isn't on PATH
+nix-open() {
+  local out apps
+  out=$(nix eval --raw "nixpkgs#$1.outPath") || return
+  [[ -e $out ]] || { echo "nix-open: $1 is not in the nix store, run 'nix shell nixpkgs#$1' first" >&2; return 1 }
+  apps=($out/Applications/*.app(N))
+  (( $#apps )) || { nix run "nixpkgs#$1" -- "${@:2}"; return }
+  open -a "$apps[1]" --args "${@:2}"
+}
+
 # Plugins from Homebrew, Nix or apt; syntax highlighting must load last
 source_first \
   "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
