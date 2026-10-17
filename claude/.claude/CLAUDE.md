@@ -1,4 +1,4 @@
-# CLAUDE.md
+# Agent Instructions
 
 ## Preferences
 - Ask before committing to git
