@@ -41,17 +41,10 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUPSTREAM=auto
-GIT_PS1_SHOWCOLORHINTS=1
 
 # Set PROMPT once instead of in precmd so venv and others can prepend to it
 setopt PROMPT_SUBST
-PROMPT='$(__nix_ps1)%B%F{green}%n@%m %F{blue}%~%f%b$(__git_ps1 " (%s)") %B%F{blue}$%f%b '
-
-# nix develop and nix-shell set IN_NIX_SHELL, but nix shell only prepends store paths to PATH
-__nix_ps1() {
-  [[ -n $IN_NIX_SHELL ]] || (( ${path[(I)/nix/store/*]} )) || return
-  print -n '%F{cyan}(nix)%f '
-}
+PROMPT='%n@%m %1~$(__git_ps1 " (%s)") %# '
 
 alias l='eza -l'
 alias ls=l
