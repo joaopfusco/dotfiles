@@ -12,7 +12,7 @@ if grep -Eiq 'git[[:space:]]+commit\b' <<<"$command" && grep -Eiq 'co-authored-b
     hookSpecificOutput: {
       hookEventName: "PreToolUse",
       permissionDecision: "deny",
-      permissionDecisionReason: "Commit message contains a Co-Authored-By trailer. Per CLAUDE.md, never add co-author attribution to commits. Remove the trailer and retry."
+      permissionDecisionReason: "Commit message contains a Co-Authored-By trailer. Per AGENTS.md, never add co-author attribution to commits. Remove the trailer and retry."
     }
   }'
   exit 0
