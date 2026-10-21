@@ -34,3 +34,21 @@ After adding a file to an existing package, or a new package (a directory mirror
 ```bash
 stow -R */
 ```
+
+## macOS defaults
+
+Some settings live in plists that macOS rewrites, so they can't be stowed. Apply them by hand:
+
+```bash
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.2
+killall Dock
+```
+
+To revert:
+
+```bash
+defaults delete com.apple.dock autohide-delay
+defaults delete com.apple.dock autohide-time-modifier
+killall Dock
+```
