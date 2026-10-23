@@ -8,5 +8,9 @@ elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
 typeset -U path
 path=("$HOME/.local/bin" "$HOME/.opencode/bin" "$HOME/.dotnet/tools" $path)
